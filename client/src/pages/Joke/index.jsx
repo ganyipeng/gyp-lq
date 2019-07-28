@@ -60,17 +60,7 @@ class Joke extends React.Component {
                 </a>
               </span>
             ),
-          },
-          {
-            title: 'operation',
-            dataIndex: 'operation',
-            render: (text, record) =>
-              this.props.joke.jokes.length >= 1 ? (
-                <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-                  <a href="javascript:;">Delete</a>
-                </Popconfirm>
-              ) : null,
-          },
+          }
       ];
 
     createHandler = ()=>{
@@ -138,28 +128,19 @@ class Joke extends React.Component {
                     ]}
                     columns={this.columns} />
                 <Modal
-                    title="Basic Modal"
+                    title="New Joke:"
                     visible={this.state.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                     >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+                    <Row>
+                        <Col span={12}>
+                            <Input placeholder="标题" ref={ref=>this.newTitleInput=ref}/>
+                            <Input placeholder="内容" ref={ref=>this.newContentInput=ref}/>
+                            <Button onClick={this.createHandler}>创建</Button>
+                        </Col>
+                    </Row>
                 </Modal>
-                <Row>
-                    <Col span={12}>
-                        <Input placeholder="标题" ref={ref=>this.newTitleInput=ref}/>
-                        <Input placeholder="内容" ref={ref=>this.newContentInput=ref}/>
-                        <Button onClick={this.createHandler}>创建</Button>
-                    </Col>
-                    <Col span={12}>
-                        <Input placeholder="标题"/>
-                        <Input placeholder="内容"/>
-                        <Button>保存</Button>
-                    </Col>
-                </Row>
-                
             </div>
         );
     }
