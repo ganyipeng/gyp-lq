@@ -78,6 +78,12 @@ export default {
   targets: {
     ie: 11,
   },
+  proxy: {
+    '/api': {
+      target: 'http://192.168.43.159:8080',
+      changeOrigin: true,
+    },
+  },
   devtool: isAntDesignProPreview ? 'source-map' : false,
   // umi routes: https://umijs.org/zh/guide/router.html
   routes: [
@@ -97,19 +103,19 @@ export default {
           path: '/HelloWorld',
           component: './HelloWorld',
           name: 'helloworld',
-          icon: 'smile'
+          icon: 'smile',
         },
         {
           path: '/mycard',
           component: './MyCard',
           name: 'mycard',
-          icon: 'smile'
+          icon: 'smile',
         },
         {
           path: '/mylist',
           component: 'MyList',
           name: 'mylist',
-          icon: 'smile'
+          icon: 'smile',
         },
         {
           path: '/dva-study',
@@ -119,9 +125,9 @@ export default {
               path: 'joke',
               component: './Joke',
               name: 'joke',
-              icon: 'smile'
-            }
-          ]
+              icon: 'smile',
+            },
+          ],
         },
         {
           path: '/antd-study',
@@ -131,109 +137,109 @@ export default {
               path: 'button',
               component: './antd-study/button',
               name: 'button',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'icon',
               component: './antd-study/icon',
               name: 'icon',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'grid',
               component: './antd-study/grid',
               name: 'grid',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'layout',
               component: './antd-study/layout',
               name: 'layout',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'affix',
               component: './antd-study/affix',
               name: 'affix',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'breadcrumb',
               component: './antd-study/breadcrumb',
               name: 'breadcrumb',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'badge',
               component: './antd-study/badge',
               name: 'badge',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'calendar',
               component: './antd-study/Calendar',
               name: 'calendar',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'carousel',
               component: './antd-study/Carousel/basic',
               name: 'carousel-basic',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'input',
               component: './antd-study/Input',
               name: 'input',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'rate',
               component: './antd-study/Rate',
               name: 'rate',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'radio',
               component: './antd-study/Radio',
               name: 'radio',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'switch',
               component: './antd-study/Switch',
               name: 'switch',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'slider',
               component: './antd-study/Slider',
               name: 'slider',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'datepicker',
               component: './antd-study/Datepicker',
               name: 'datepicker',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'gg-editor',
               component: './antd-study/gg-editor',
               name: 'gg-editor',
-              icon: 'smile'
+              icon: 'smile',
             },
             {
               path: 'propstate',
               component: './antd-study/xyz/prop-state',
               name: 'propstate',
-              icon: 'smile'
-            }
-          ]
+              icon: 'smile',
+            },
+          ],
         },
         {
           component: './404',
-        }
+        },
       ],
     },
     {
