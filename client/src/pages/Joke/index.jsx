@@ -1,10 +1,12 @@
 import React from 'react'
-import { Popconfirm, List, Grid, Card, Input, Button, Row, Col, Icon, Table, Divider } from 'antd'
+import { Modal, Popconfirm, List, Grid, Card, Input, Button, Row, Col, Icon, Table, Divider } from 'antd'
 import { connect } from 'dva'
 
 
 
 class Joke extends React.Component {
+    state = { visible: false };
+
     componentDidMount() {
         this.props.dispatch({
             type: 'joke/getJokes'
@@ -97,15 +99,54 @@ class Joke extends React.Component {
         })
     }
 
+    handleOk = e => {
+        console.log(e);
+        this.setState({
+          visible: false,
+        });
+      };
+    
+    handleCancel = e => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    };
+
+    showModal = () => {
+        this.setState({
+          visible: true,
+        });
+    };
+
     render() {
         return (
             <div>
                 <Table dataSource={this.props.joke.jokes} bordered
-                    title={()=>{return 'XiaoMing\'s Jokes'}}
+                    title={()=>{
+                        return ['XiaoMing\'s Jokes',
+                            <a style={{float:'right'}}>
+                                <Icon type="plus" onClick={this.showModal}>
+                                    Open Modal
+                                </Icon>
+                            </a>
+                            ]
+                        }
+                    }
                     footer={()=>['You want to know who is XiaoMing?', 
                         <Button type="link">Connect me</Button>
                     ]}
                     columns={this.columns} />
+                <Modal
+                    title="Basic Modal"
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    >
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Modal>
                 <Row>
                     <Col span={12}>
                         <Input placeholder="标题" ref={ref=>this.newTitleInput=ref}/>
